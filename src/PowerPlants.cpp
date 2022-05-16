@@ -2,5 +2,5 @@
 
 void CoalPlant::adjustOutput(double referenceOutput)
 {
-    return;
+    this->setCurrentOutput(referenceOutput);
 }

@@ -9,12 +9,5 @@
 
 int main() 
 {
-    class GenericPlant : public PowerPlant
-    {
-            void adjustOutput(double referenceOutput) override
-            {
-                return;
-            }
-    } foo;
-   std::cout<<"Hello World!"<<std::endl;
+    std::cout<<"Welcome to the Energy Grid Game!"<<std::endl;
 }
