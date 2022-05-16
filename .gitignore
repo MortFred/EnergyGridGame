@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Self defined exceptions
+/media
+game
