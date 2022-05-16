@@ -5,7 +5,12 @@ class PowerPlant
 {
     public:
         PowerPlant() {}
-        PowerPlant(double pricePerKwh, double co2PerKwh);
+        PowerPlant(double initPrice, double initCo2, double initOutput)
+        {
+            pricePerKwh = initPrice;
+            co2PerKwh = initCo2;
+            currentOutput = initOutput;
+        }
         virtual ~PowerPlant() {}
 
         double getCurrentOutput() const {return currentOutput;}
@@ -14,12 +19,10 @@ class PowerPlant
 
         void setPricePerKwh(double price) {pricePerKwh = price;}
         void setCo2PerKwh(double co2) {co2PerKwh = co2;}
+        void setCurrentOutput(double output) {currentOutput = output;}
 
         virtual void adjustOutput(double referenceOutput) = 0;
     
-    protected:
-        void setCurrentOutput(double output) {currentOutput = output;}
-
     private:
         double pricePerKwh = 0;
         double co2PerKwh = 0;
@@ -29,7 +32,9 @@ class PowerPlant
 class CoalPlant : public PowerPlant 
 {
     public:
-        void adjustOutput(double referenceOutput);
+        CoalPlant() : PowerPlant() {}
+        CoalPlant(double pricePerKwh, double co2PerKwh, double output) : PowerPlant(pricePerKwh, co2PerKwh, output){}
+        void adjustOutput(double referenceOutput) override;
 };
 
 #endif
