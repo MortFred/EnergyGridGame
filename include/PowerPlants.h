@@ -4,16 +4,18 @@
 class PowerPlant
 {
     public:
-        PowerPlant();
+        PowerPlant() {};
         PowerPlant(double pricePerKwh, double co2PerKwh);
-        double getCurrentOutput() const;
-        virtual void adjustOutput(double referenceOutput);
-        ~PowerPlant();
+        double getCurrentOutput() const {return currentOutput;};
+        double getPricePerKwh() const {return pricePerKwh;};
+        double getCo2PerKwh() const {return co2PerKwh;};
+        virtual void adjustOutput(double referenceOutput) = 0;
+        virtual ~PowerPlant() {};
     
     protected:
-        double pricePerKwh;
-        double co2PerKwh;
-        double currentOutput;
+        double pricePerKwh = 0;
+        double co2PerKwh = 0;
+        double currentOutput = 0;
 };
 
 #endif

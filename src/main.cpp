@@ -1,5 +1,6 @@
 #include "HelloSDL.h"
 #include "HelloCpputest.h"
+#include "PowerPlants.h"
 #include <stdint.h>
 #include <iostream>
 #include <stdio.h>
@@ -8,5 +9,12 @@
 
 int main() 
 {
+    class GenericPlant : public PowerPlant
+    {
+            void adjustOutput(double referenceOutput) override
+            {
+                return;
+            }
+    } foo;
    std::cout<<"Hello World!"<<std::endl;
 }

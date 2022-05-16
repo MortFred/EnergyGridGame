@@ -5,13 +5,29 @@
 
 TEST_GROUP(PowerPlants)
 {
-   void setup()
-   {
-      // Init stuff
-   }
+    class GenericPlant : public PowerPlant
+    {
+            void adjustOutput(double referenceOutput) override
+            {
+                return;
+            }
+    } foo;
 
-   void teardown()
-   {
-      // Un-init stuff
-   }
+    void setup()
+    {
+
+        // GenericPlant foo;
+    }
+
+    void teardown()
+    {
+        // Un-init stuff
+    }
 };
+
+TEST(PowerPlants, GenericPlantReturnsPrice)
+{
+    double price = foo.getPricePerKwh();
+    double initPrice = 0;
+    LONGS_EQUAL(price, initPrice);
+}
