@@ -1,6 +1,6 @@
 #include "PowerPlants.h"
 
-class CoalPlant : public PowerPlant
+void CoalPlant::adjustOutput(double referenceOutput)
 {
-
-};
+    return;
+}
