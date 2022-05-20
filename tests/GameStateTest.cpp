@@ -3,6 +3,7 @@
 #include "RuntimeErrorStub.h"
 #include <stdexcept>
 #include <iostream>
+#include "Exceptions.h"
 
 TEST_GROUP(GameState)
 {
@@ -37,16 +38,36 @@ TEST(GameState, GameStateInitsNoPowerPlantsByDefault)
     }
 };
 
-TEST(GameState, GameStateInitsSinglePowerPlant)
+TEST(GameState, GameStateInitsSinglePowerPlantList)
 {
     PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
     CoalPlant coalPlant;
     powerPlants[0] = &coalPlant;
-    GameState state_new(powerPlants);
+    GameState state_new(powerPlants, 1);
     POINTERS_EQUAL(&coalPlant, state_new.getPowerPlants()[0]);
 
     for (int i = 1; i<maxNumberOfPlants; i++)
     {
         POINTERS_EQUAL(nullptr, state_new.getPowerPlants()[i]);
     }
+};
+
+TEST(GameState, InitTwoPlantsWithOnlyOneInListReturnsException)
+{
+    int numberOfPlants = 2;
+    PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
+    CoalPlant coalPlant;
+    powerPlants[0] = &coalPlant;
+    CHECK_THROWS(InvalidPowerPlantList, new GameState(powerPlants, 2));
+};
+
+TEST(GameState, InitTwoPlantsSetsNumberOfPlantsVariable)
+{
+    int numberOfPlants = 2;
+    PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
+    CoalPlant coalPlant;
+    powerPlants[0] = &coalPlant;
+    powerPlants[1] = &coalPlant;
+    GameState state_new(powerPlants, 2);
+    LONGS_EQUAL(numberOfPlants, state_new.getNumberOfPlants());
 };

@@ -10,11 +10,12 @@ class GameState
 {
     public:
         GameState(){}
-        GameState(PowerPlant** starterPlants);
+        GameState(PowerPlant** starterPlants, int numberOfPlants);
         double getCo2Score(){return co2Score;}
         double getPriceScore(){return priceScore;}
         double getTotalDemand(){return totalDemand;}
         double getTimeValue(){return timeValue;}
+        int getNumberOfPlants(){return numberOfPlants;}
         PowerPlant** getPowerPlants() {return powerPlants;} 
 
         void setCo2Score(double value) {co2Score = value;}
@@ -27,6 +28,7 @@ class GameState
         double priceScore = 0;
         double totalDemand = 0;
         double timeValue = 0;
+        int numberOfPlants = 4;
         PowerPlant* powerPlants[maxNumberOfPlants]; 
 
 };
