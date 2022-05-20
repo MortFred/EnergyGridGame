@@ -12,4 +12,5 @@ int main()
 {
     std::cout<<"Welcome to the Energy Grid Game!"<<std::endl;
     
+    
 }

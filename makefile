@@ -8,7 +8,7 @@ CC=c++
 CPPFLAGS= -I$(IDIR) -I$(IDIR)/util -std=c++17 -stdlib=libc++
 LINKER_FLAGS= -lSDL2 -lm
 
-src/obj/main.o: src/main.cpp include/HelloCpputest.h include/HelloSDL.h include/PowerPlants.h include/GameState.h
+src/obj/main.o: src/main.cpp include/HelloCpputest.h include/HelloSDL.h include/PowerPlants.h include/GameState.h include/GameLogic.h
 	$(CC) -c -o $@ src/main.cpp $(CPPFLAGS)
 
 src/obj/HelloSDL.o: src/HelloSDL.cpp include/HelloSDL.h
@@ -19,6 +19,9 @@ src/obj/PowerPlants.o: src/PowerPlants.cpp include/PowerPlants.h
 
 src/obj/GameState.o: src/GameState.cpp include/GameState.h
 	$(CC) -c -o $@ src/GameState.cpp $(CPPFLAGS)
+
+src/obj/GameLogic.o: src/GameLogic.cpp include/GameLogic.h
+	$(CC) -c -o $@ src/GameLogic.cpp $(CPPFLAGS)
 
 test:
 	make -C $(TEST_DIR)
