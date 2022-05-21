@@ -29,7 +29,7 @@ test:
 test_clean:
 	make -C $(TEST_DIR) clean
 
-game: src/obj/main.o src/obj/PowerPlants.o
+game: src/obj/main.o src/obj/PowerPlants.o src/obj/DisplayWindow.o
 	$(CC) -o $@ $^ $(LINKER_FLAGS)
 
 all: test game

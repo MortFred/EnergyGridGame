@@ -1,5 +1,4 @@
-#include "HelloSDL.h"
-#include "HelloCpputest.h"
+#include "DisplayWindow.h"
 #include "PowerPlants.h"
 #include <stdint.h>
 #include <list>
@@ -13,6 +12,8 @@ int main()
     std::cout<<"Welcome to the Energy Grid Game!"<<std::endl;
     bool quit = false;
     SDL_Event e;
+    SDLWindow gameWindow;
+
 
     while(!quit)
     {
@@ -24,6 +25,8 @@ int main()
                 quit = true;
             }
         }
+        //Update the surface
+        gameWindow.update();
     }
     
 }
