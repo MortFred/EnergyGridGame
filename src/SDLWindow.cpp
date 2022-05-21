@@ -1,4 +1,4 @@
-#include "DisplayWindow.h"
+#include "SDLWindow.h"
 
 SDLWindow::SDLWindow()
 {
