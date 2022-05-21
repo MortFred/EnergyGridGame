@@ -3,13 +3,17 @@
 #include "RuntimeErrorStub.h"
 #include <stdexcept>
 
-TEST_GROUP(GameLogic)
+TEST_GROUP(GameInstance)
 {
     GameInstance game;
 };
 
-// TEST(GameLogic, GameInstanceInitsCorrectly)
-// {
-//     game.
-//     DOUBLES_EQUAL(currentOutput, initOutput, 0.01);
-// };
+TEST(GameInstance, InitsNumberOfPlantsCorrectly)
+{
+    LONGS_EQUAL(game.getNumberOfPlants(), 1);
+};
+
+TEST(GameInstance, InitsNumberPlantList)
+{
+    LONGS_EQUAL(game.getNumberOfPlants(), 1);
+};

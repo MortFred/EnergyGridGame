@@ -8,6 +8,11 @@
 TEST_GROUP(GameState)
 {
     GameState state;
+
+    void setup()
+    {
+
+    }
 };
 
 TEST(GameState, GameStateInitsCo2Correctly)
