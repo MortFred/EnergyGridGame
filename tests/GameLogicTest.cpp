@@ -17,5 +17,5 @@ TEST(GameInstance, returnsStateCorrectly)
 {
     GameState explicitState;
     GameInstance game;
-    MEMCMP_EQUAL(&explicitState, game.getState(), sizeof(explicitState));
+    MEMCMP_EQUAL(&explicitState, &game.getState(), sizeof(explicitState));
 };
