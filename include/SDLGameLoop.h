@@ -8,7 +8,7 @@ namespace SDL
 {
     void gameLoop();
     bool closeWindow();
-    bool handleEvent(SDL_Event, bool);
+    bool handleEvent(SDL_Event, bool &);
 }
 
 #endif

@@ -3,6 +3,7 @@
 void SDL::gameLoop()
 {
     bool quit = false;
+    
     SDL_Event e;
     SDLWindow gameWindow;
 
@@ -19,16 +20,20 @@ void SDL::gameLoop()
 
 }
 
-bool SDL::handleEvent(SDL_Event e, bool quit)
+bool SDL::handleEvent(SDL_Event e, bool &quit)
 {
-    if( e.type == SDL_QUIT )
+    switch(e.type)
     {
-        quit = true;
-        return false;
+        case SDL_QUIT:
+        {
+            quit = true;
+            return false;
+        }
     }
+    return true;
 }
 
 bool SDL::closeWindow()
 {
-
+    return true;
 }

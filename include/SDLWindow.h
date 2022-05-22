@@ -14,13 +14,13 @@ class SDLWindow
     
     private:
     //The window we'll be rendering to
-    SDL_Window* gWindow = NULL;
+    SDL_Window* gWindow = nullptr;
         
     //The surface contained by the window
-    SDL_Surface* gScreenSurface = NULL;
+    SDL_Surface* gScreenSurface = nullptr;
 
     //The image we will load and show on the screen
-    SDL_Surface* gHelloWorld = NULL;
+    SDL_Surface* gHelloWorld = nullptr;
 
     const int SCREEN_WIDTH = 400;
     const int SCREEN_HEIGHT = 500;
