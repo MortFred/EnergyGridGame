@@ -17,6 +17,8 @@ TEST_SRC_DIRS += .
 
 MOCKS_SRC_DIRS += mocks
 
+LINKER_FLAGS= -lSDL2 -lm
+
 # Turn on CppUMock
 CPPUTEST_USE_EXTENSIONS = Y
 
@@ -57,5 +59,7 @@ CPPUTEST_CXXFLAGS += -Wno-c++14-compat
 CPPUTEST_CXXFLAGS += --std=c++17
 CPPUTEST_CXXFLAGS += -Wno-c++98-compat-pedantic
 CPPUTEST_CXXFLAGS += -Wno-c++98-compat
+
+LD_LIBRARIES = -lSDL2 -lm
 
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
