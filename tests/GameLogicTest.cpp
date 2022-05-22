@@ -13,9 +13,25 @@ TEST(GameInstance, InitsNumberOfPlantsCorrectly)
     LONGS_EQUAL(game.getNumberOfPlants(), 1);
 };
 
-TEST(GameInstance, returnsStateCorrectly)
+TEST(GameInstance, ReturnsStateCorrectly)
 {
     GameState explicitState;
-    GameInstance game;
-    MEMCMP_EQUAL(&explicitState, &game.getState(), sizeof(explicitState));
+    LONGS_EQUAL(explicitState.getNumberOfPlants(), (game.getState()).getNumberOfPlants());
 };
+
+TEST(GameInstance, UpdatesTimeByOne)
+{
+    GameState& state = game.getState();
+    int startTime = state.getTimeValue();
+    game.updateTime();
+    LONGS_EQUAL(startTime + 1, state.getTimeValue());
+}
+
+TEST(GameInstance, UpdatesTimeByN)
+{
+    int N = 15;
+    GameState& state = game.getState();
+    int startTime = state.getTimeValue();
+    game.setTime(N);
+    LONGS_EQUAL(startTime + N, state.getTimeValue());
+}

@@ -5,4 +5,14 @@ GameInstance::GameInstance()
     state = GameState();
 }
 
-// GameInstance::
+void GameInstance::updateTime()
+{
+    int startTime = state.getTimeValue();
+    state.setTimeValue(startTime+1);
+}
+
+void GameInstance::setTime(int value)
+{
+    int startTime = state.getTimeValue();
+    state.setTimeValue(startTime+value);
+}
