@@ -13,7 +13,9 @@ TEST(GameInstance, InitsNumberOfPlantsCorrectly)
     LONGS_EQUAL(game.getNumberOfPlants(), 1);
 };
 
-TEST(GameInstance, InitsNumberPlantList)
+TEST(GameInstance, returnsStateCorrectly)
 {
-    LONGS_EQUAL(game.getNumberOfPlants(), 1);
+    GameState explicitState;
+    GameInstance game;
+    MEMCMP_EQUAL(&explicitState, game.getState(), sizeof(explicitState));
 };

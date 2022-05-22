@@ -33,7 +33,7 @@ bool SDL::handleEvent(SDL_Event e, bool &quit)
     return true;
 }
 
-bool SDL::closeWindow()
+bool SDL::closeWindow(SDLWindow gameWindow)
 {
     return true;
 }

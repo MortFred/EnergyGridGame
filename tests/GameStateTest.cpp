@@ -35,9 +35,10 @@ TEST(GameState, GameStateInitsTotalDemandCorrectly)
     DOUBLES_EQUAL(0, state.getTotalDemand(), 0.01);
 };
 
-TEST(GameState, GameStateInitsNoPowerPlantsByDefault)
+TEST(GameState, GameStateInitsOneCoalPlantByDefault)
 {
-    for (int i = 0; i<maxNumberOfPlants; i++)
+    LONGS_EQUAL((*state.getPowerPlants()[0]).getCurrentOutput(), 0);
+    for (int i = 1; i<maxNumberOfPlants; i++)
     {
         POINTERS_EQUAL(nullptr, state.getPowerPlants()[i]);
     }
@@ -63,7 +64,7 @@ TEST(GameState, InitTwoPlantsWithOnlyOneInListReturnsException)
     PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
     CoalPlant coalPlant;
     powerPlants[0] = &coalPlant;
-    CHECK_THROWS(InvalidPowerPlantList, new GameState(powerPlants, 2));
+    CHECK_THROWS(InvalidPowerPlantList, new GameState(powerPlants, numberOfPlants));
 };
 
 TEST(GameState, InitTwoPlantsSetsNumberOfPlantsVariable)

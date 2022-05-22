@@ -18,3 +18,8 @@ TEST(SDLGameLoop, GameQuitsWithQuitEvent)
     SDL::handleEvent(e, quit);
     CHECK(quit);
 };
+
+TEST(SDLGameLoop, QuitEventReleaseWindowMemory)
+{
+    
+};

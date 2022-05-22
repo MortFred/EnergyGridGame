@@ -7,4 +7,6 @@ GameInstance::GameInstance()
     CoalPlant coalPlant;
     powerPlants[0] = &coalPlant;
     state = GameState(powerPlants, numberOfPlants);
-};
+}
+
+// GameInstance::

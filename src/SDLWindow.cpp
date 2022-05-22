@@ -1,4 +1,5 @@
 #include "SDLWindow.h"
+#include <iostream>
 
 SDLWindow::SDLWindow()
 {
@@ -15,7 +16,7 @@ SDLWindow::SDLWindow()
     {
         //Create window
         gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-        if( gWindow == NULL )
+        if( gWindow == nullptr )
         {
             printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
             success = false;
@@ -30,15 +31,13 @@ SDLWindow::SDLWindow()
 
 SDLWindow::~SDLWindow()
 {
-    //Deallocate surface
     SDL_FreeSurface( gHelloWorld );
-    gHelloWorld = NULL;
-
-    //Destroy window
     SDL_DestroyWindow( gWindow );
-    gWindow = NULL;
 
-    //Quit SDL subsystems
+    gHelloWorld = nullptr;
+    gWindow = nullptr;
+    gScreenSurface = nullptr;
+
     SDL_Quit();
 };
 
