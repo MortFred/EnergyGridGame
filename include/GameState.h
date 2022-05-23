@@ -3,6 +3,7 @@
 
 #include <list>
 #include "PowerPlants.h"
+#include "config.h"
 
 const int maxNumberOfPlants = 4;
 

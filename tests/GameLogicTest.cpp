@@ -27,6 +27,15 @@ TEST(GameInstance, UpdatesTimeByOne)
     LONGS_EQUAL(startTime + 1, state.getTimeValue());
 }
 
+TEST(GameInstance, UpdatesTimeByOnePastMaxReturnsMax)
+{
+    GameState& state = game.getState();
+    int startTime = config::maxTime;
+    game.setTime(startTime);
+    game.updateTime();
+    LONGS_EQUAL(startTime, state.getTimeValue());
+}
+
 TEST(GameInstance, UpdatesTimeByN)
 {
     int N = 15;
@@ -34,4 +43,12 @@ TEST(GameInstance, UpdatesTimeByN)
     int startTime = state.getTimeValue();
     game.setTime(N);
     LONGS_EQUAL(startTime + N, state.getTimeValue());
+}
+
+TEST(GameInstance, UpdatesTimeByNPastMaxReturnsMax)
+{
+    int N = config::maxTime;
+    GameState& state = game.getState();
+    game.setTime(N + 1);
+    LONGS_EQUAL(N, state.getTimeValue());
 }
