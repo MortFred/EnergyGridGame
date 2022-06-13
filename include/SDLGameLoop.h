@@ -9,6 +9,8 @@ namespace SDL
     void gameLoop();
     bool handleEvent(SDL_Event, bool &);
     bool closeWindow(SDLWindow);
+    void testFunction();
+    void printStatus();
 }
 
 #endif
