@@ -6,6 +6,9 @@
 
 In order to contact the hardware of your machine, you need to have Simple DirectMedia Layer (SDL) installed. Follow the [installation guide](http://wiki.libsdl.org/Installation) for your development system.
 
+#### SDL_image
+
+
 ### CppUTest
 
 CHECK(boolean condition) - checks any boolean result.

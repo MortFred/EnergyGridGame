@@ -1,4 +1,5 @@
 #include "SDLGameLoop.h"
+#include <iostream>
 
 void SDL::gameLoop()
 {
@@ -28,6 +29,10 @@ bool SDL::handleEvent(SDL_Event e, bool &quit)
         {
             quit = true;
             return false;
+        }
+        case SDL_KEYDOWN:
+        {
+            std::cout<<e.key.keysym.sym<<std::endl;
         }
     }
     return true;

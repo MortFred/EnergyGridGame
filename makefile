@@ -6,7 +6,7 @@ LDIR =./lib
 
 CC=c++
 CPPFLAGS= -I$(IDIR) -I$(IDIR)/util -std=c++17 -stdlib=libc++
-LINKER_FLAGS= -lSDL2 -lm
+LINKER_FLAGS= -lSDL2 -lm -lSDL2_image
 
 src/obj/main.o: src/main.cpp include/PowerPlants.h include/GameState.h include/GameLogic.h include/SDLWindow.h include/SDLGameLoop.h
 	$(CC) -c -o $@ src/main.cpp $(CPPFLAGS)
