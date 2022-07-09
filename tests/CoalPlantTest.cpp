@@ -39,4 +39,5 @@ TEST(CoalPowerPlant, CoalPlantCanBeInstantiated)
     DOUBLES_EQUAL(initPrice, instantiatedCoalPlant.getPricePerKwh(), 0.01);
     DOUBLES_EQUAL(initCo2, instantiatedCoalPlant.getCo2PerKwh(), 0.01);
     DOUBLES_EQUAL(initOutput, instantiatedCoalPlant.getCurrentOutput(), 0.01);
+    UNSIGNED_LONGS_EQUAL(PlantType::Coal, instantiatedCoalPlant.getPlantType());
 }

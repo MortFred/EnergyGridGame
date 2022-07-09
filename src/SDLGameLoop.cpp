@@ -4,10 +4,11 @@
 enum buttons
 {
     TEST_BUTTON=116,
-    STATUS_BUTTON=115
+    STATUS_BUTTON=115,
+    QUIT_BUTTON=113,
 };
 
-void SDL::gameLoop()
+void SDLGameLoop::gameLoop()
 {
     bool quit = false;
     
@@ -27,7 +28,7 @@ void SDL::gameLoop()
 
 }
 
-bool SDL::handleEvent(SDL_Event e, bool &quit)
+bool SDLGameLoop::handleEvent(SDL_Event e, bool &quit)
 {
     switch(e.type)
     {
@@ -39,21 +40,23 @@ bool SDL::handleEvent(SDL_Event e, bool &quit)
             {
                 case TEST_BUTTON: testFunction(); break;
                 case STATUS_BUTTON: printStatus(); break;
+                case QUIT_BUTTON: quit = true; return false;
             }
         }
     }
     return true;
 }
 
-bool SDL::closeWindow(SDLWindow gameWindow)
+bool SDLGameLoop::closeWindow(SDLWindow gameWindow)
 {
     return true;
 }
 
-void SDL::testFunction(){
+void SDLGameLoop::testFunction(){
     std::cout<<"test"<<std::endl;
 }
 
-void SDL::printStatus(){
+void SDLGameLoop::printStatus(){
     std::cout<<"status"<<std::endl;
+    game.printGameState();
 }

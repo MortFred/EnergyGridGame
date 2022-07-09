@@ -16,6 +16,8 @@ class GameInstance
         void updateTime();
         void setTime(int);
 
+        void printGameState();
+
     private:
         GameState state;
 

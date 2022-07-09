@@ -14,7 +14,7 @@ src/obj/main.o: src/main.cpp include/PowerPlants.h include/GameState.h include/G
 src/obj/PowerPlants.o: src/PowerPlants.cpp include/PowerPlants.h
 	$(CC) -c -o $@ src/PowerPlants.cpp $(CPPFLAGS)
 
-src/obj/GameState.o: src/GameState.cpp include/GameState.h
+src/obj/GameState.o: src/GameState.cpp include/GameState.h include/Config.h
 	$(CC) -c -o $@ src/GameState.cpp $(CPPFLAGS)
 
 src/obj/GameLogic.o: src/GameLogic.cpp include/GameLogic.h
@@ -23,7 +23,7 @@ src/obj/GameLogic.o: src/GameLogic.cpp include/GameLogic.h
 src/obj/SDLWindow.o: src/SDLWindow.cpp include/SDLWindow.h
 	$(CC) -c -o $@ src/SDLWindow.cpp $(CPPFLAGS)
 
-src/obj/SDLGameLoop.o: src/SDLGameLoop.cpp include/SDLGameLoop.h include/SDLWindow.h
+src/obj/SDLGameLoop.o: src/SDLGameLoop.cpp include/SDLGameLoop.h include/SDLWindow.h include/GameLogic.h
 	$(CC) -c -o $@ src/SDLGameLoop.cpp $(CPPFLAGS)
 
 test:
@@ -32,7 +32,7 @@ test:
 test_clean:
 	make -C $(TEST_DIR) clean
 
-game: src/obj/main.o src/obj/PowerPlants.o src/obj/SDLWindow.o src/obj/SDLGameLoop.o
+game: src/obj/main.o src/obj/PowerPlants.o src/obj/SDLWindow.o src/obj/SDLGameLoop.o src/obj/GameLogic.o src/obj/GameState.o
 	$(CC) -o $@ $^ $(LINKER_FLAGS)
 
 all: test game

@@ -3,14 +3,19 @@
 
 #include <SDL2/SDL.h>
 #include "SDLWindow.h"
+#include "GameLogic.h"
 
-namespace SDL
+class SDLGameLoop
 {
-    void gameLoop();
-    bool handleEvent(SDL_Event, bool &);
-    bool closeWindow(SDLWindow);
-    void testFunction();
-    void printStatus();
-}
+    public:
+        void gameLoop();
+        bool handleEvent(SDL_Event, bool &);
+        bool closeWindow(SDLWindow);
+        void testFunction();
+        void printStatus();
+
+    private:
+        GameInstance game;
+};
 
 #endif

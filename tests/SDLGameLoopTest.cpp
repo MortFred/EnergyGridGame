@@ -7,7 +7,7 @@
 
 TEST_GROUP(SDLGameLoop)
 {
-
+    SDLGameLoop gameLoop;
 };
 
 TEST(SDLGameLoop, GameQuitsWithQuitEvent)
@@ -15,7 +15,7 @@ TEST(SDLGameLoop, GameQuitsWithQuitEvent)
     SDL_Event e;
     e.type = SDL_QUIT;
     bool quit = false;
-    SDL::handleEvent(e, quit);
+    gameLoop.handleEvent(e, quit);
     CHECK(quit);
 };
 
