@@ -32,13 +32,12 @@ void GameInstance::printGameState()
     std::cout << "Current Total Supply: " << this->state.getTotalSupply() << std::endl;
     std::cout << "Current time: " << this->state.getTimeValue() << std::endl << std::endl;
 
-    std::cout << "=== Power Plants ===" << std::endl << std::endl;
-    PowerPlant** powerPlants = state.getPowerPlants();
-    std::cout << *powerPlants << std::endl;
+    std::cout << "=== Power Plants: " << this->state.getNumberOfPlants() << std::endl << std::endl;
+    PowerPlant* powerPlants = state.getPowerPlants();
     for(int i = 0; i < this->state.getNumberOfPlants(); i++){
         std::cout << "hei" << std::endl;
-        std::cout << "Plant type: " << powerPlants[i] << std::endl;
-        std::cout << "Plant type: " << powerPlants[i]->getPlantType() << std::endl;
-        std::cout << "Co2 intensity: " << powerPlants[i]->getCo2PerKwh() << std::endl;
+        // std::cout << "Plant type: " << powerPlants[i] << std::endl;
+        std::cout << "Plant type: " << powerPlants[i].getPlantTypeString() << std::endl;
+        std::cout << "Co2 intensity: " << powerPlants[i].getCo2PerKwh() << std::endl;
     }
 }

@@ -5,15 +5,7 @@
 
 TEST_GROUP(GenericPowerPlants)
 {
-    class GenericPlant : public PowerPlant
-    {
-        public:
-            void adjustOutput(double referenceOutput) override
-            {
-                return;
-            }
-    } genericPlant;
-
+    PowerPlant genericPlant;
 };
 
 TEST(GenericPowerPlants, GenericPlantReturnsPrice)

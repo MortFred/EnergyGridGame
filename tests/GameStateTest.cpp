@@ -35,45 +35,35 @@ TEST(GameState, GameStateInitsTotalDemandCorrectly)
     DOUBLES_EQUAL(0, state.getTotalDemand(), 0.01);
 };
 
-TEST(GameState, GameStateInitsOneCoalPlantByDefault)
-{
-    LONGS_EQUAL((*state.getPowerPlants()[0]).getCurrentOutput(), 0);
-    for (int i = 1; i<maxNumberOfPlants; i++)
-    {
-        POINTERS_EQUAL(nullptr, state.getPowerPlants()[i]);
-    }
-};
-
 TEST(GameState, GameStateInitsSinglePowerPlantList)
 {
-    PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
-    CoalPlant coalPlant;
-    powerPlants[0] = &coalPlant;
+    PowerPlant powerPlants[maxNumberOfPlants];
+    powerPlants[0] = PowerPlant(PlantType::Coal);
     GameState state_new(powerPlants, 1);
-    POINTERS_EQUAL(&coalPlant, state_new.getPowerPlants()[0]);
+    UNSIGNED_LONGS_EQUAL(1, state_new.getPowerPlants()[0].getPlantType());
 
     for (int i = 1; i<maxNumberOfPlants; i++)
     {
-        POINTERS_EQUAL(nullptr, state_new.getPowerPlants()[i]);
+        UNSIGNED_LONGS_EQUAL(0, state_new.getPowerPlants()[i].getPlantType());
     }
 };
 
-TEST(GameState, InitTwoPlantsWithOnlyOneInListReturnsException)
-{
-    int numberOfPlants = 2;
-    PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
-    CoalPlant coalPlant;
-    powerPlants[0] = &coalPlant;
-    CHECK_THROWS(InvalidPowerPlantList, new GameState(powerPlants, numberOfPlants));
-};
+// TEST(GameState, InitTwoPlantsWithOnlyOneInListReturnsException)
+// {
+//     int numberOfPlants = 2;
+//     PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
+//     CoalPlant coalPlant;
+//     powerPlants[0] = &coalPlant;
+//     CHECK_THROWS(InvalidPowerPlantList, new GameState(powerPlants, numberOfPlants));
+// };
 
-TEST(GameState, InitTwoPlantsSetsNumberOfPlantsVariable)
-{
-    int numberOfPlants = 2;
-    PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
-    CoalPlant coalPlant;
-    powerPlants[0] = &coalPlant;
-    powerPlants[1] = &coalPlant;
-    GameState state_new(powerPlants, 2);
-    LONGS_EQUAL(numberOfPlants, state_new.getNumberOfPlants());
-};
+// TEST(GameState, InitTwoPlantsSetsNumberOfPlantsVariable)
+// {
+//     int numberOfPlants = 2;
+//     PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
+//     CoalPlant coalPlant;
+//     powerPlants[0] = &coalPlant;
+//     powerPlants[1] = &coalPlant;
+//     GameState state_new(powerPlants, 2);
+//     LONGS_EQUAL(numberOfPlants, state_new.getNumberOfPlants());
+// };

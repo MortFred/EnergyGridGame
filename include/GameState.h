@@ -10,7 +10,7 @@ class GameState
 {
     public:
         GameState();
-        GameState(PowerPlant**, int);
+        GameState(PowerPlant*, int);
         double getCo2Score() {return co2Score;}
         double getPriceScore() {return priceScore;}
         double getTotalDemand() {return totalDemand;}
@@ -25,8 +25,7 @@ class GameState
         void setTimeValue(int value) {timeValue = value;}
         void setNumberOfPlants(int value) {numberOfPlants = value;}
         
-        PowerPlant** getPowerPlants() {return powerPlants;} 
-        void updatePowerPlants(PowerPlant**, int);
+        PowerPlant* getPowerPlants() {return powerPlants;} 
         
     private:
         double co2Score = 0;
@@ -35,7 +34,7 @@ class GameState
         double totalSupply = 0;
         int timeValue = 0;
         int numberOfPlants = 0;
-        PowerPlant* powerPlants[maxNumberOfPlants]{nullptr}; 
+        PowerPlant powerPlants[maxNumberOfPlants]; 
 
 };
 

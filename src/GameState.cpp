@@ -3,30 +3,18 @@
 
 GameState::GameState()
 {
-    int numberOfPlants = 1;
-    PowerPlant* powerPlants[maxNumberOfPlants]{nullptr};
-    CoalPlant coalPlant;
-    powerPlants[0] = &coalPlant;
-    updatePowerPlants(powerPlants, numberOfPlants);
+    this->numberOfPlants = 0;
+    for (int i = 0; i < maxNumberOfPlants; i++)
+    {
+        this->powerPlants[i] = PowerPlant(PlantType::None);
+    }
 }
 
-GameState::GameState(PowerPlant** starterPlants, int numberOfPlants)
-{
-    updatePowerPlants(starterPlants, numberOfPlants);
-}
-
-void GameState::updatePowerPlants(PowerPlant** starterPlants, int numberOfPlants)
+GameState::GameState(PowerPlant* starterPlants, int numberOfPlants)
 {
     this->numberOfPlants = numberOfPlants;
-    for(int i = 0; i < numberOfPlants; i++)
+    for (int i = 0; i < numberOfPlants; i++)
     {
-        if (starterPlants[i] == nullptr) {
-            throw InvalidPowerPlantList();
-        }
-        powerPlants[i] = starterPlants[i];
-    };
-    for(int j = numberOfPlants; j < maxNumberOfPlants;j++)
-    {
-        powerPlants[j] = nullptr;
-    };
+        this->powerPlants[i] = starterPlants[i];
+    }
 }

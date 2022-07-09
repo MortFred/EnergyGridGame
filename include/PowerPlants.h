@@ -16,6 +16,7 @@ class PowerPlant
 {
     public:
         PowerPlant() {}
+        PowerPlant(PlantType::Type type) {plantType = type;}
         PowerPlant(double initPrice, double initCo2, double initOutput, PlantType::Type type)
         {
             pricePerKwh = initPrice;
@@ -23,7 +24,7 @@ class PowerPlant
             currentOutput = initOutput;
             plantType = type;
         }
-        virtual ~PowerPlant() {}
+        ~PowerPlant() {}
 
         double getCurrentOutput() const {return currentOutput;}
         double getPricePerKwh() const {return pricePerKwh;}
@@ -35,22 +36,13 @@ class PowerPlant
         void setCo2PerKwh(double co2) {co2PerKwh = co2;}
         void setCurrentOutput(double output) {currentOutput = output;}
 
-        virtual void adjustOutput(double referenceOutput) = 0;
+        void adjustOutput(double referenceOutput);
     
     private:
         PlantType::Type plantType = PlantType::None;
         double pricePerKwh = 0;
         double co2PerKwh = 0;
         double currentOutput = 0;
-};
-
-class CoalPlant : public PowerPlant 
-{
-    public:
-        CoalPlant() : PowerPlant() {}
-        CoalPlant(double pricePerKwh, double co2PerKwh, double output) 
-            : PowerPlant(pricePerKwh, co2PerKwh, output, PlantType::Coal){}
-        void adjustOutput(double referenceOutput) override;
 };
 
 #endif

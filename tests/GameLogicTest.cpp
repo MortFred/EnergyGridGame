@@ -10,7 +10,7 @@ TEST_GROUP(GameInstance)
 
 TEST(GameInstance, InitsNumberOfPlantsCorrectly)
 {
-    LONGS_EQUAL(game.getNumberOfPlants(), 1);
+    LONGS_EQUAL(game.getNumberOfPlants(), 0);
 };
 
 TEST(GameInstance, ReturnsStateCorrectly)
